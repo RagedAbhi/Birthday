@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from "react";
 import Confetti from "react-confetti";
 import { Fireworks } from "@fireworks-js/react";
 import { Volume2, VolumeX } from "lucide-react";
-import BirthdayBg from "/BirthdayBg.jpg";
-import p1 from "/p1.jpg";
-import p2 from "/p2.jpg";
-import bgMusic from "/BgMusic.mp3";
+import BirthdayBg from "./assets/BirthdayBg.jpg";
+import p1 from "./assets/p1.jpeg";
+import p2 from "./assets/p2.jpeg";
+import bgMusic from "./assets/BgMusic.mp3";
 
 export default function BirthdayApp() {
   const [showWelcome, setShowWelcome] = useState(true);
@@ -119,12 +119,12 @@ export default function BirthdayApp() {
           <h1 className="text-6xl md:text-7xl font-extrabold mb-6 drop-shadow-lg neon-text">
             Happy Birthday
           </h1>
-          <h2 className="text-4xl md:text-5xl mb-12 font-semibold text-blue-300">
+          <h2 className="text-4xl md:text-5xl mb-12 font-semibold text-orange-300">
             Alex & Calvin
           </h2>
           <button
             onClick={handleEnter}
-            className="px-10 py-5 bg-blue-400 text-black font-bold text-2xl rounded-full shadow-lg hover:bg-blue-300 transition"
+            className="px-10 py-5 bg-orange-400 text-black font-bold text-2xl rounded-full shadow-lg hover:bg-orange-300 transition"
           >
             Enter
           </button>
@@ -154,7 +154,7 @@ export default function BirthdayApp() {
 
       <button
         onClick={toggleMusic}
-        className="absolute top-6 right-6 p-4 rounded-full bg-white text-blue-800 shadow-lg hover:scale-110 transition"
+        className="absolute top-6 right-6 p-4 rounded-full bg-white text-orange-800 shadow-lg hover:scale-110 transition"
       >
         {isPlaying ? <Volume2 size={28} /> : <VolumeX size={28} />}
       </button>
@@ -162,40 +162,46 @@ export default function BirthdayApp() {
       <Sparkles />
       <Balloons />
 
-      {/* Cake */}
-      <div className="relative flex flex-col items-center mt-24 z-10">
-        <div className="absolute -top-20 flex flex-col items-center">
-          <div className="w-4 h-16 bg-white rounded-t-md relative">
-            {!candleBlown && (
-              <div className="absolute -top-6 left-[0.2rem] transform -translate-x-1/2 w-3 h-6 rounded-full bg-gradient-to-t from-yellow-300 via-orange-400 to-red-500 animate-flame opacity-90 shadow-lg"></div>
-            )}
-          </div>
-        </div>
+     {/* Cake */}
+<div className="relative flex flex-col items-center mt-24 z-10">
+  {/* Candle */}
+  <div className="absolute -top-20 flex flex-col items-center">
+    <div className="w-4 h-16 bg-white rounded-t-md relative">
+      {!candleBlown && (
+        <div className="absolute -top-6 left-[0.2rem] transform -translate-x-1/2 w-3 h-6 rounded-full 
+        bg-gradient-to-t from-yellow-300 via-orange-400 to-red-500 
+        animate-flame shadow-lg"></div>
+      )}
+    </div>
+  </div>
 
-        <div className="w-36 h-16 bg-gradient-to-r from-blue-400 to-blue-600 rounded-t-2xl shadow-md relative flex items-center justify-center overflow-hidden">
-          <div className="absolute w-full h-4 bg-white rounded-b-full top-0 opacity-50 animate-drip"></div>
-        </div>
+  {/* Top Layer */}
+  <div className="w-36 h-16 bg-gradient-to-r from-orange-300 to-orange-500 shadow-md relative overflow-hidden">
+    <div className="absolute w-full h-4 bg-white rounded-b-full top-0 opacity-90 animate-drip"></div>
+  </div>
 
-        <div className="w-48 h-20 bg-gradient-to-r from-blue-500 to-blue-700 shadow-md relative rounded-md overflow-hidden">
-          <div className="absolute w-full h-4 bg-white rounded-b-full top-0 opacity-50 animate-drip"></div>
-        </div>
+  {/* Middle Layer */}
+  <div className="w-48 h-20 bg-gradient-to-r from-orange-200 to-orange-600 shadow-md relative rounded-md overflow-hidden">
+    <div className="absolute w-full h-4 bg-white rounded-b-full top-0 opacity-90 animate-drip"></div>
+  </div>
 
-        <div className="w-64 h-24 bg-gradient-to-r from-blue-600 to-blue-800 rounded-b-2xl shadow-lg relative overflow-hidden">
-          <div className="absolute w-full h-6 bg-white rounded-b-full top-0 opacity-50 animate-drip"></div>
-        </div>
-      </div>
+  {/* Bottom Layer */}
+  <div className="w-64 h-24 bg-gradient-to-r from-orange-300 to-orange-700 rounded-b-2xl shadow-lg relative overflow-hidden">
+    <div className="absolute w-full h-6 bg-white rounded-b-full top-0 opacity-90 animate-drip"></div>
+  </div>
+</div>
 
       {!candleBlown && (
         <button
           onClick={blowCandle}
-          className="mt-10 px-12 py-4 bg-blue-500 rounded-full text-lg font-semibold shadow-md hover:bg-blue-600 transition z-10"
+          className="mt-10 px-12 py-4 bg-orange-500 rounded-full text-lg font-semibold shadow-md hover:bg-orange-600 transition z-10"
         >
           🎂 Make a Wish & Blow the Candle
         </button>
       )}
 
       {candleBlown && (
-        <div className="mt-14 text-3xl md:text-4xl font-extrabold text-blue-300 animate-bounce text-center drop-shadow-xl neon-text z-10">
+        <div className="mt-14 text-3xl md:text-4xl font-extrabold text- orange-300 animate-bounce text-center drop-shadow-xl neon-text z-10">
           ✨ Hope you guys have the most wonderful year ahead ✨
         </div>
       )}
@@ -224,10 +230,10 @@ export default function BirthdayApp() {
         .animate-float-slow { animation: floatUp linear infinite; }
         .neon-text {
           text-shadow:
-            0 0 5px #3b82f6,
-            0 0 10px #3b82f6,
-            0 0 20px #3b82f6,
-            0 0 40px #3b82f6;
+            0 0 5px #f6603bff,
+            0 0 10px #f6803bff,
+            0 0 20px #f68f3bff,
+            0 0 40px #f6763bff;
         }
       `}</style>
     </div>
