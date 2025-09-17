@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from "react";
 import Confetti from "react-confetti";
 import { Fireworks } from "@fireworks-js/react";
 import { Volume2, VolumeX } from "lucide-react";
-import BirthdayBg from "./assets/BirthdayBg.jpg";
-import p1 from "./assets/p1.jpeg";
-import p2 from "./assets/p2.jpeg";
-import bgMusic from "./assets/BgMusic.mp3";
+import BirthdayBg from "/BirthdayBg.jpg";
+import p1 from "/p1.jpeg";
+import p2 from "/p2.jpeg";
+import bgMusic from "/BgMusic.mp3";
 
 export default function BirthdayApp() {
   const [showWelcome, setShowWelcome] = useState(true);
